@@ -10,6 +10,7 @@ import tech.devinhouse.lanchonete.repository.ProdutoRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Component
 public class Aplicacao {
@@ -124,6 +125,33 @@ public class Aplicacao {
             ui.exibirMensagemSucesso(String.format("Pedido cadastrado com sucesso! id = %d - Valor = R$ %.2f",
                     pedido.getId(), pedido.getValorTotal()));
         }
+
+    }
+
+    public void exemplos() {
+        Cliente cliente = new Cliente();
+        cliente.setCpf(55555555555L);
+        cliente.setNome("Lea");
+        // caso eu nao queira que altere um cliente já cadastrado
+        Optional<Cliente> clienteOpt = clienteRepo.findById(cliente.getCpf());
+        if (clienteOpt.isPresent()) {
+            throw new RuntimeException("Cliente já cadastrado!");
+        }
+        clienteRepo.save(cliente);
+//        boolean existe = clienteRepo.existsById(cliente.getCpf());
+//        if (existe)
+//            throw new RuntimeException("Cliente já cadastrado!");
+//        Optional<Cliente> clienteOpt = clienteRepo.findByNome("Lea");
+//        if (clienteOpt.isPresent())
+//            throw new RuntimeException("Princesa Lea jah cadastrada!!!!");
+
+//        Cliente cliente = clienteRepo.findById(99999999999L).get();
+//        clienteRepo.delete(cliente);
+//        clienteRepo.deleteById(cliente.getCpf()); // exclui pela chave primaria
+
+//        Optional<Cliente> clienteOpt = clienteRepo.obterPorCpfENome(55555555555L, "Lea");
+//        if (clienteOpt.isPresent())
+//            System.out.println("ACHOU A PRINCESA LEAAAAAA!!!");
 
     }
 

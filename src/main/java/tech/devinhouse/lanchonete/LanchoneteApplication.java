@@ -16,7 +16,8 @@ public class LanchoneteApplication {
 	CommandLineRunner run(Aplicacao app) {
 		return args -> {
 			app.carregarDados();
-			app.executar();
+//			app.executar();
+			app.exemplos();
 		};
 	}
 

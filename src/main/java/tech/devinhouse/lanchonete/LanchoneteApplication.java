@@ -15,7 +15,8 @@ public class LanchoneteApplication {
 	@Bean
 	CommandLineRunner run(Aplicacao app) {
 		return args -> {
-			app.iniciar();
+			app.carregarDados();
+			app.executar();
 		};
 	}
 

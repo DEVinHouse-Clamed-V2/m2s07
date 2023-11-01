@@ -2,9 +2,8 @@ package tech.devinhouse.lanchonete.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tech.devinhouse.lanchonete.model.Cliente;
+import tech.devinhouse.lanchonete.model.Pedido;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente,Long>  {
+public interface PedidoRepository extends JpaRepository<Pedido,Integer> {
 }
-
